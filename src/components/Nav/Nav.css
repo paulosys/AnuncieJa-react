@@ -1,0 +1,18 @@
+.ul-nav{
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.li-nav{
+    padding: 0 10px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.li-nav, a{
+    color: var(--green-hover);
+    text-decoration: none;
+}

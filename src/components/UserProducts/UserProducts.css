@@ -1,0 +1,44 @@
+.user-products{
+    min-height: 80vh;
+    background-color: var(--green-hover);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.products-title{
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--white);
+    margin-bottom: 2rem;
+}
+
+.no-product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 5%;
+}
+
+.button{
+    width: max-content;
+    height: 50px;
+    background-color: white;
+    color: var(--green);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-style: none;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.button:hover {
+    background-color: var(--green-hover);
+    transition: 300ms;
+    color: white;
+    border-bottom: 2px solid white;
+}

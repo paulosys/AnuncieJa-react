@@ -1,0 +1,47 @@
+/*footer*/
+.logo-footer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6% 0; 
+    
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.logo-footer a{
+   color: var(--green);
+}
+
+.nav-footer{
+    width: 100%;
+}
+
+.nav-footer ul{
+    min-width: 450px;
+    list-style: disc;
+    flex-direction: row;
+    display: flex;
+    font-weight: bold;
+}
+
+.nav-footer ul li a:hover{
+    border-bottom: 2px solid var(--green);
+}
+
+.content-footer{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.container-footer{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3% 0;
+}
