@@ -8,7 +8,6 @@ const FooterPage = () => {
                 <div className="content-footer">
                     <div className="logo-footer">
                         <Logo/>
-
                     </div>
                     <nav className="nav-footer">
                         <ul>
@@ -16,7 +15,6 @@ const FooterPage = () => {
                             <li><a href="#product">Produtos</a></li>
                         </ul>
                     </nav>
-
                 </div>
                 <div className="privacity-page">
                     <p>© 2022 - Todos os direitos reservados</p>

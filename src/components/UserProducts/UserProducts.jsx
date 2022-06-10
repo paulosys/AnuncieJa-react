@@ -1,6 +1,16 @@
+import React, { useState } from 'react';
+
 import "./UserProducts.css";
+import FormProducts from '../FormProducts/FormProducts';
 
 const UserProducts = () => {
+
+  const [showForm, setShowForm] = useState(false);
+
+  const showFormProduct = () => {
+    setShowForm(!showForm);
+  } 
+
   return (
     <div className="user-products">
       <div className="products-content">
@@ -17,8 +27,12 @@ const UserProducts = () => {
       </div>
 
       <div className="user-product-button">
-        <button className="button">Inserir Produtos</button>
+        <button className="button" onClick={showFormProduct}>Inserir Produtos</button>
       </div>
+
+      {showForm && (
+        <FormProducts/>
+      )}
     </div>
   );
 };

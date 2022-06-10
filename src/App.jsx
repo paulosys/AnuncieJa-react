@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
 import UserProducts from './components/UserProducts/UserProducts'
+import AllProducts from './components/AllProducts/AllProducts'
 
 import FooterPage from './components/FooterPag/FooterPag'
 
@@ -21,7 +22,7 @@ function App() {
       </section>
 
       <section>
-
+        <AllProducts/>
       </section>
 
       <footer>
