@@ -8,8 +8,8 @@ const UserProducts = () => {
   const [showForm, setShowForm] = useState(false);
 
   const showFormProduct = () => {
-    setShowForm(!showForm);
-  } 
+    setShowForm(true);
+  }
 
   return (
     <div className="user-products">
@@ -30,9 +30,7 @@ const UserProducts = () => {
         <button className="button" onClick={showFormProduct}>Inserir Produtos</button>
       </div>
 
-      {showForm && (
-        <FormProducts/>
-      )}
+      {showForm && <FormProducts />}
     </div>
   );
 };
