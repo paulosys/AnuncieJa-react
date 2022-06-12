@@ -1,6 +1,6 @@
 import "./FormProducts.css";
 
-const FormProducts = () => {
+const FormProducts = ({hideFormProduct}) => {
 
     return (
         
@@ -8,7 +8,7 @@ const FormProducts = () => {
             <div className="form-header">
                 <h1>AnuncieJá </h1>
                 <div className="box-close">
-                    <button className="button-close" id="close-button" onClick={showFormProduct}><i className="fa-solid fa-xmark"></i></button>
+                    <button className="button-close" id="close-button" onClick={hideFormProduct}><i className="fa-solid fa-xmark"> X </i></button>
                 </div>
             </div>
 
