@@ -12,11 +12,13 @@ export const ProductContextProvider = ({ children }) => {
         image: ""
     }
     const [productClient, setProductClient] = useState([]);
+    const [idUser, setIdUser] = useState();
     const [product, setProduct] = useState([]);
     const [productSelected, setProductSelected] = useState(emptyProduct);
     const [ShowProductForm, setShowProductForm] = useState(false);
     const [ShowProductFormDelete, setShowProductFormDelete] = useState(false);
     const [typeProductForm, setTypeProductForm] = useState("create");
+
 
     const toggleProductForm = () => {
         setShowProductForm(!ShowProductForm);
@@ -48,6 +50,7 @@ export const ProductContextProvider = ({ children }) => {
         setProductSelected(product);
         toggleProductFormDelete()
     }
+    
 
     const handleDeleteProduct = (product) => {
         // implementar depois de feita a api 
@@ -70,10 +73,17 @@ export const ProductContextProvider = ({ children }) => {
             handleFormUpdateProduct,
             handleUpdateProduct,
             handleFormDeleteProduct,
+            handleDeleteProduct,
             handleSubmitProductForm,
+            idUser, 
+            setIdUser
         }}
         >
-            {children}
+            { children }
         </ProductContext.Provider>
     )
+}
+
+export function useProduct() {
+    return useContext(ProductContext);
 }

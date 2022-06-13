@@ -1,4 +1,50 @@
-import './App.css'
+import { useEffect } from "react";
+import { useProduct } from "./contexts/ProductContext";
+
+const App = () => {
+  const { productClient, setProductClient, product, setProduct, idUser, setIdUser } = useProduct();
+  const getIdUser = () => {
+    setIdUser(parseInt(localStorage.getItem("idUser")));
+    
+}
+  useEffect(() => {
+    const loads = async () => {
+      const response = await api.readAll();
+      setProductClient([...product, ...response]);
+      productsClient = response.filter(product => product.id == idUser);
+      setProductClient([...productClient, ...productsClient]);
+
+    }
+  }, []);
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*import './App.css'
 
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
@@ -35,3 +81,4 @@ function App() {
 }
 
 export default App
+*/
