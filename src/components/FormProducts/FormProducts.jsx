@@ -1,6 +1,12 @@
 import "./FormProducts.css";
+import { useProduct } from "../../contexts/ProductContext";
 
-const FormProducts = ({hideFormProduct}) => {
+
+const FormProducts = () => {
+    const { toggleProductForm, productSelected } = useProduct()
+    const {name, memory, color, memoryRam, price, image} = productSelected;
+
+
 
     return (
         
@@ -8,7 +14,7 @@ const FormProducts = ({hideFormProduct}) => {
             <div className="form-header">
                 <h1>AnuncieJá </h1>
                 <div className="box-close">
-                    <button className="button-close" id="close-button" onClick={hideFormProduct}><i className="fa-solid fa-xmark"> X </i></button>
+                    <button className="button-close" id="close-button" onClick={toggleProductForm}><i className="fa-solid fa-xmark"> X </i></button>
                 </div>
             </div>
 
@@ -16,7 +22,7 @@ const FormProducts = ({hideFormProduct}) => {
                 <div className="input-group">
                     <div className="input-box">
                         <label htmlFor="productName">Nome do Produto</label>
-                        <input id="productName" type="text" name="productName" required />
+                        <input id="productName" value = {name} type="text" name="productName" required />
                     </div>
 
                     <div className="input-box">
@@ -25,28 +31,28 @@ const FormProducts = ({hideFormProduct}) => {
                             <div className="input-box-cifrao">
                                 <span className="input-cifrao">R$</span>
                             </div>
-                            <input id="productPrice" type="number" name="productPrice" required />
+                            <input id="productPrice" type="number" value = {price} name="productPrice" required />
                         </div>
                     </div>
                     <div className="input-box">
                         <label htmlFor="productMemory"> Memória principal </label>
-                        <input id="productMemory" type="number" name="productMemory" required />
+                        <input id="productMemory" value = { memory } type="number" name="productMemory" required />
 
                     </div>
                     <div className="input-box">
                         <label htmlFor="productMemoryRam"> Memória Ram </label>
-                        <input id="productMemoryRam" type="number" name="" required />
+                        <input id="productMemoryRam" value = { memoryRam } type="number" name="" required />
 
                     </div>
                     <div className="input-box">
                         <label htmlFor="productColor"> Cor do produto </label>
-                        <input id="productColor" name="productColor" required />
+                        <input id="productColor" value = { color } name="productColor" required />
                     </div>
 
                     <div className="input-box">
                         <label htmlFor="productCategory">Categoria do produto</label>
                         <select id="productCategory" name="productCategory" required="">
-                            <option value="1">Computador </option>
+                            <option value="1"> Computador </option>
                             <option value="2"> Celular </option>
                         </select>
 

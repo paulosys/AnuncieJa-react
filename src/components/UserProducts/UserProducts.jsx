@@ -2,17 +2,11 @@ import React, { useState } from 'react';
 
 import "./UserProducts.css";
 import FormProducts from '../FormProducts/FormProducts';
+import { useProduct } from '../../contexts/ProductContext';
 
 const UserProducts = () => {
+  const {ShowProductForm} = useProduct()
 
-  const [showForm, setShowForm] = useState(false);
-
-  const showFormProduct = () => {
-    setShowForm(true);
-  }
-  const hideFormProduct = () => {
-    setShowForm(false);
-  }
 
   return (
     <div className="user-products">
@@ -33,7 +27,7 @@ const UserProducts = () => {
         <button className="button" onClick={showFormProduct}>Inserir Produtos</button>
       </div>
 
-      {showForm && <FormProducts hideFormProduct = {hideFormProduct} />}
+      {ShowProductForm && <FormProducts />}
     </div>
   );
 };

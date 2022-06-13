@@ -76,7 +76,12 @@ export const ProductContextProvider = ({ children }) => {
             handleDeleteProduct,
             handleSubmitProductForm,
             idUser, 
-            setIdUser
+            setIdUser,
+            ShowProductForm, 
+            setShowProductForm,
+            ShowProductFormDelete, 
+            setShowProductFormDelete,
+            toggleProductForm
         }}
         >
             { children }

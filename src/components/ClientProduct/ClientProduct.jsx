@@ -3,7 +3,7 @@ import { useProduct } from "../contexts/ProductContext";
 
 const ClientProduct = (product) => { 
     const { id, name, memory, color, memoryRam, price, image } = product
-    const { handleFormDeleteProduct } = useProduct();
+    const { handleFormDeleteProduct, handleFormUpdateProduct } = useProduct();
 
     const getPrice = (string) => {
         const priceArray = String(string).split(".");
