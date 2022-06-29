@@ -7,7 +7,6 @@ import { useProduct } from '../../contexts/ProductContext';
 const UserProducts = () => {
   const {ShowProductForm} = useProduct()
 
-
   return (
     <div className="user-products">
       <div className="products-content">
@@ -24,7 +23,7 @@ const UserProducts = () => {
       </div>
 
       <div className="user-product-button">
-        <button className="button" onClick={showFormProduct}>Inserir Produtos</button>
+        <button className="button" onClick={ShowProductForm}>Inserir Produtos</button>
       </div>
 
       {ShowProductForm && <FormProducts />}

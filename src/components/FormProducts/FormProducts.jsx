@@ -6,8 +6,6 @@ const FormProducts = () => {
     const { toggleProductForm, productSelected } = useProduct()
     const {name, memory, color, memoryRam, price, image} = productSelected;
 
-
-
     return (
         
         <div className="form-modal">

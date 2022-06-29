@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+/*import { useEffect } from "react";
 import { useProduct } from "./contexts/ProductContext";
 
 const App = () => {
@@ -20,33 +20,12 @@ const App = () => {
 
 
 }
+*/
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*import './App.css'
+import './App.css'
 
 import Header from './components/Header/Header'
 import Banner from './components/Banner/Banner'
@@ -83,4 +62,3 @@ function App() {
 }
 
 export default App
-*/
