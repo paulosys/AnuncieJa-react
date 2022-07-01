@@ -9,7 +9,8 @@ export function ProductContextProvider({ children }) {
         color: "",
         memoryRam: "",
         price: "",
-        image: ""
+        image: "",
+        default: 1
     }
     const [productClient, setProductClient] = useState([]);
     const [idUser, setIdUser] = useState(0);
@@ -18,6 +19,31 @@ export function ProductContextProvider({ children }) {
     const [ShowProductForm, setShowProductForm] = useState(false);
     const [ShowProductFormDelete, setShowProductFormDelete] = useState(false);
     const [typeProductForm, setTypeProductForm] = useState("create");
+
+    
+    const updateProductClient = (product) => {
+        console.log(productClient)
+        const index = productClient.findIndex((products) => products.id == product.id)
+        productClient[index] = product
+        
+    }
+    const updateProduct = (products) => {
+        console.log(product)
+        const index = product.findIndex((producsts) => producsts.id == products.id)
+        product[index] = products
+        
+    }
+
+    const addProduct = (product2) => {
+        const id_max = (product[product.length - 1].id) + 1;
+        product2 = {...product2, id : id_max}
+
+        setProductClient([...productClient, product2, ])
+        console.log(productClient);
+        setProduct([...product, product2])
+
+    }
+    
     
 
 
@@ -28,18 +54,20 @@ export function ProductContextProvider({ children }) {
         setShowProductFormDelete(!ShowProductFormDelete);
     }
 
-    const handleFormCreateProduct = () => { 
+    const handleOpenFormCreateProduct = () => {
         setProductSelected(emptyProduct);
-        toggleProductForm()
         setTypeProductForm("create");
-    }
-    const handleCreateProduct = (product) => {
-       // implementar depois de feita a api
+        toggleProductForm()
+       
+       
 
+    }
+    const handleCloseFormCreateProduct = () => {
+        toggleProductForm()
     }
 
     const handleFormUpdateProduct = (product) => {
-        setProductSelected(product);
+        setProductSelected(product.product);
         toggleProductForm()
         setTypeProductForm("update");
     }
@@ -69,8 +97,6 @@ export function ProductContextProvider({ children }) {
             setProduct,
             productSelected, 
             setProductSelected,
-            handleFormCreateProduct,
-            handleCreateProduct,
             handleFormUpdateProduct,
             handleUpdateProduct,
             handleFormDeleteProduct,
@@ -83,7 +109,15 @@ export function ProductContextProvider({ children }) {
             ShowProductFormDelete, 
             setShowProductFormDelete,
             toggleProductForm,
-            emptyProduct
+            emptyProduct,
+            handleOpenFormCreateProduct,
+            handleCloseFormCreateProduct,
+            emptyProduct,
+            updateProductClient,
+            updateProduct,
+            addProduct,
+            typeProductForm
+
         }}
         >
             { children }
@@ -94,3 +128,5 @@ export function ProductContextProvider({ children }) {
 export function useProduct() {
     return useContext(ProductContext);
 }
+
+

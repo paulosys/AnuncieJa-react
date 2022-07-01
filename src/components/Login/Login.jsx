@@ -7,7 +7,7 @@ const Login = () => {
     const [showForm, setShowForm] = useState(true);
 
     const showFormLogin = () => {
-        setShowForm(showForm == false);
+        setShowForm(showForm);
     }
 
     return (

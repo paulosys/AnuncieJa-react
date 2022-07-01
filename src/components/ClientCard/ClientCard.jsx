@@ -1,16 +1,16 @@
-import { useProduct } from "../contexts/ProductContext";
+import { useProduct } from "../../contexts/ProductContext";
 
 import "./ClientCard.css";
 
 const ClientCard = (product) => { 
-    const { id, name, memory, color, memoryRam, price, image } = product
+    const { id, name, memory, color, memoryRam, price, image } = product.product
     const { handleFormDeleteProduct, handleFormUpdateProduct } = useProduct();
 
     const getPrice = (string) => {
         const priceArray = String(string).split(".");
         return priceArray;
     }
-    const priceString = gerPrice(price)
+    const priceString = getPrice(price)
     return (
         <div className="product client-product" id = {`product-${id}`}>
                                 

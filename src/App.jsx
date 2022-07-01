@@ -1,20 +1,30 @@
 import { useEffect } from "react";
 import {useProduct} from "./contexts/ProductContext"
 import api from "../api/api";
+import UserProducts from "./components/UserProducts/UserProducts"
 const App = () => {
-  const { productClient, setProductClient, product, setProduct, idUser, setIdUser } = useProduct();
+  const { product, setProduct, productClient, setProductClient} = useProduct();
+ 
   
   useEffect(() => {
     async function loads () {
       const response = await api.readAll();
    
       setProduct([...product, ...response]);
-      productsClient = response.filter(product => product.id == idUser);
+      const productsClient = response.filter(product => product.default == 1);
       setProductClient([...productClient, ...productsClient]);
 
     }
     loads()
   }, []);
+  
+  return (
+    <div>
+      <UserProducts></UserProducts>
+    </div>
+  )
+
+
 
 
 
