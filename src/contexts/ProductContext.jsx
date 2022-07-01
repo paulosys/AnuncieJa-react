@@ -2,7 +2,7 @@ import { createContext, useState, useContext } from "react";
 
 export const ProductContext = createContext({});
 
-export const ProductContextProvider = ({ children }) => {
+export function ProductContextProvider({ children }) {
     const emptyProduct = {
         name: "",
         memory: "",
@@ -12,12 +12,13 @@ export const ProductContextProvider = ({ children }) => {
         image: ""
     }
     const [productClient, setProductClient] = useState([]);
-    const [idUser, setIdUser] = useState();
+    const [idUser, setIdUser] = useState(0);
     const [product, setProduct] = useState([]);
     const [productSelected, setProductSelected] = useState(emptyProduct);
     const [ShowProductForm, setShowProductForm] = useState(false);
     const [ShowProductFormDelete, setShowProductFormDelete] = useState(false);
     const [typeProductForm, setTypeProductForm] = useState("create");
+    
 
 
     const toggleProductForm = () => {
@@ -81,7 +82,8 @@ export const ProductContextProvider = ({ children }) => {
             setShowProductForm,
             ShowProductFormDelete, 
             setShowProductFormDelete,
-            toggleProductForm
+            toggleProductForm,
+            emptyProduct
         }}
         >
             { children }
