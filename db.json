@@ -1,8 +1,14 @@
 {
+    "cliente": [
+        {
+            "id": 1,
+            "nome": "Paulo"
+        }
+    ],
     "products": [
         {
             "id": 1,
-            "default": true,
+            "default": 1,
             "name": "Moto E7 Power Dual SIM",
             "Memory": 32,
             "color": "Azul-metálico",
@@ -12,7 +18,7 @@
         },
         {
             "id": 2,
-            "default": true,
+            "default": 1,
             "name": "Notebook Lenovo Ideapad 330-15ISK",
             "memory": 512,
             "color": "Cinza",
@@ -22,7 +28,7 @@
         },
         {
             "id": 3,
-            "default": true,
+            "default": 0,
             "name": "Moto E7 Power Plus Ultra Premium Dual SIM",
             "memory": 32,
             "color": "azul-metálico",

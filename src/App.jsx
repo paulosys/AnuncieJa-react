@@ -1,30 +1,29 @@
-/*import { useEffect } from "react";
-import { useProduct } from "./contexts/ProductContext";
-
+import { useEffect } from "react";
+import {useProduct} from "./contexts/ProductContext"
+import api from "../api/api";
 const App = () => {
   const { productClient, setProductClient, product, setProduct, idUser, setIdUser } = useProduct();
-  const getIdUser = () => {
-    setIdUser(parseInt(localStorage.getItem("idUser")));
-    
-}
+  
   useEffect(() => {
-    const loads = async () => {
+    async function loads () {
       const response = await api.readAll();
-      setProductClient([...product, ...response]);
+   
+      setProduct([...product, ...response]);
       productsClient = response.filter(product => product.id == idUser);
       setProductClient([...productClient, ...productsClient]);
 
     }
+    loads()
   }, []);
 
 
 
 }
-*/
 
 
 
 
+/*
 import './App.css'
 
 import Header from './components/Header/Header'
@@ -60,5 +59,6 @@ function App() {
     </div>
   )
 }
+*/
 
 export default App
