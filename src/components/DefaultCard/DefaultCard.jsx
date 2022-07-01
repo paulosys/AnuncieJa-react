@@ -1,4 +1,4 @@
-const SiteProduct = (produto) => {
+const DefaultCard = (produto) => {
     const { id, name, memory, color, memoryRam, price, image } = product;
     const getPrice = (string) => {
         const priceArray = String(string).split(".");

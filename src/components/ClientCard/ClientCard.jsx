@@ -1,7 +1,8 @@
 import { useProduct } from "../contexts/ProductContext";
 
+import "./ClientCard.css";
 
-const ClientProduct = (product) => { 
+const ClientCard = (product) => { 
     const { id, name, memory, color, memoryRam, price, image } = product
     const { handleFormDeleteProduct, handleFormUpdateProduct } = useProduct();
 
@@ -34,4 +35,4 @@ const ClientProduct = (product) => {
     )
 
 }
-export default ClientProduct;
+export default ClientCard;
