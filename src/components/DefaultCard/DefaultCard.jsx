@@ -1,5 +1,5 @@
-const DefaultCard = (produto) => {
-    const { id, name, memory, color, memoryRam, price, image } = product;
+const DefaultCard = ({produto}) => {
+    const { id, name, memory, color, memoryRam, price, image } = produto;
     const getPrice = (string) => {
         const priceArray = String(string).split(".");
         return priceArray;
@@ -27,3 +27,5 @@ const DefaultCard = (produto) => {
 
     )
 }
+
+export default DefaultCard

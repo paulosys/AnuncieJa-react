@@ -13,24 +13,24 @@ export function ProductContextProvider({ children }) {
         default: 1
     }
     const [productClient, setProductClient] = useState([]);
-    const [idUser, setIdUser] = useState(0);
     const [product, setProduct] = useState([]);
     const [productSelected, setProductSelected] = useState(emptyProduct);
     const [ShowProductForm, setShowProductForm] = useState(false);
-    const [ShowProductFormDelete, setShowProductFormDelete] = useState(false);
     const [typeProductForm, setTypeProductForm] = useState("create");
 
     
     const updateProductClient = (product) => {
-        console.log(productClient)
-        const index = productClient.findIndex((products) => products.id == product.id)
-        productClient[index] = product
+        const temp = [...productClient];
+        const index = temp.findIndex((products) => products.id == product.id);
+        temp[index] = product
+        setProductClient([...temp]);
         
     }
     const updateProduct = (products) => {
-        console.log(product)
-        const index = product.findIndex((producsts) => producsts.id == products.id)
-        product[index] = products
+        const temp = [...product];
+        const index = temp.findIndex((producsts) => producsts.id == products.id)
+        temp[index] = products
+        setProduct([...temp]);
         
     }
 
@@ -39,21 +39,27 @@ export function ProductContextProvider({ children }) {
         product2 = {...product2, id : id_max}
 
         setProductClient([...productClient, product2, ])
-        console.log(productClient);
         setProduct([...product, product2])
 
     }
-    
+    const deleteProduct = (product2) => {
+        let tempProduct = [...product];
+        const index = tempProduct.findIndex((products) => products.id == product2.product.id);
+        tempProduct.splice(index, 1);
+        setProduct([...tempProduct]);
+
+        let tempProductCliente = [...productClient];
+        const indexProductCliente = tempProductCliente.findIndex((products) => products.id == product2.product.id);
+        tempProductCliente.splice(indexProductCliente, 1);
+        setProductClient([...tempProductCliente]);
+    }
     
 
 
     const toggleProductForm = () => {
         setShowProductForm(!ShowProductForm);
     }
-    const toggleProductFormDelete = () => {
-        setShowProductFormDelete(!ShowProductFormDelete);
-    }
-
+ 
     const handleOpenFormCreateProduct = () => {
         setProductSelected(emptyProduct);
         setTypeProductForm("create");
@@ -71,24 +77,9 @@ export function ProductContextProvider({ children }) {
         toggleProductForm()
         setTypeProductForm("update");
     }
-    const handleUpdateProduct = (product) => {
-        // implementar depois de feita a api
-        
-    }
-    const handleFormDeleteProduct = (product) => {
-        setProductSelected(product);
-        toggleProductFormDelete()
-    }
     
 
-    const handleDeleteProduct = (product) => {
-        // implementar depois de feita a api 
-    }
 
-    const handleSubmitProductForm = (product) => {
-        typeProductForm == "create" ? handleCreateProduct(product) : handleUpdateProduct(product);
-        toggleProductForm();
-    }
     return (
         <ProductContext.Provider value={{
             productClient, 
@@ -98,25 +89,17 @@ export function ProductContextProvider({ children }) {
             productSelected, 
             setProductSelected,
             handleFormUpdateProduct,
-            handleUpdateProduct,
-            handleFormDeleteProduct,
-            handleDeleteProduct,
-            handleSubmitProductForm,
-            idUser, 
-            setIdUser,
             ShowProductForm, 
             setShowProductForm,
-            ShowProductFormDelete, 
-            setShowProductFormDelete,
             toggleProductForm,
-            emptyProduct,
             handleOpenFormCreateProduct,
             handleCloseFormCreateProduct,
             emptyProduct,
             updateProductClient,
             updateProduct,
             addProduct,
-            typeProductForm
+            typeProductForm,
+            deleteProduct
 
         }}
         >

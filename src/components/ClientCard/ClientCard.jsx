@@ -1,21 +1,30 @@
 import { useProduct } from "../../contexts/ProductContext";
+import api from "../../../api/api";
 
 import "./ClientCard.css";
 
 const ClientCard = (product) => { 
     const { id, name, memory, color, memoryRam, price, image } = product.product
-    const { handleFormDeleteProduct, handleFormUpdateProduct } = useProduct();
+    const {handleFormUpdateProduct, deleteProduct } = useProduct();
 
     const getPrice = (string) => {
         const priceArray = String(string).split(".");
         return priceArray;
     }
+
+    const handleDeleteProduct = (product) => {
+        api.deleteProduct(product.product.id);
+        deleteProduct(product);
+
+    }
+
+
     const priceString = getPrice(price)
     return (
         <div className="product client-product" id = {`product-${id}`}>
                                 
                 <div className="button-crud">
-                    <button className="button-crud-delete" onClick = { () => handleFormDeleteProduct(product) } title="deletar"><i className="fa-solid fa-trash-can"></i> X </button>
+                    <button className="button-crud-delete" onClick = { () => handleDeleteProduct(product) } title="deletar"><i className="fa-solid fa-trash-can"></i> X </button>
                 </div>
                 <div> 
                     <button className="Atualizar" onClick = {() => handleFormUpdateProduct(product)}> atualizar </button>

@@ -8,12 +8,16 @@ const readAll = async() => {
    
 }
 const addProduct = async (product) => {
-    await axios.post(`${baseApi}/products`, product)
+    await axios.post(`${baseApi}/products`, product);
 
 }
 
 const updateProduct = async (product) => {
-    await axios.put(`${baseApi}/products/${product.id}`, product)
+    await axios.put(`${baseApi}/products/${product.id}`, product);
 
 }
-export default {readAll, addProduct, updateProduct}
+
+const deleteProduct = async (id) => {
+    await axios.delete(`${baseApi}/products/${id}`);
+}
+export default {readAll, addProduct, updateProduct, deleteProduct};

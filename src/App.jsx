@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import {useProduct} from "./contexts/ProductContext"
 import api from "../api/api";
 import UserProducts from "./components/UserProducts/UserProducts"
+import AllProducts from "./components/AllProducts/AllProducts";
 const App = () => {
   const { product, setProduct, productClient, setProductClient} = useProduct();
  
@@ -21,6 +22,7 @@ const App = () => {
   return (
     <div>
       <UserProducts></UserProducts>
+      <AllProducts></AllProducts>
     </div>
   )
 
