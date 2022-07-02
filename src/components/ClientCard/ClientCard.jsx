@@ -21,7 +21,7 @@ const ClientCard = (product) => {
 
     const priceString = getPrice(price)
     return (
-        <div className="product client-product" id = {`product-${id}`}>
+        <div className="product client-product" id = {`product cliente - ${id}`}>
                                 
                 <div className="button-crud">
                     <button className="button-crud-delete" onClick = { () => handleDeleteProduct(product) } title="deletar"><i className="fa-solid fa-trash-can"></i> X </button>

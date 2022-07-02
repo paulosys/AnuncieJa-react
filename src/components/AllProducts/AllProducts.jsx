@@ -11,7 +11,7 @@ const AllProducts = () => {
                 <h2 className="products-title"> Anúncios </h2>
                 <div className="products-container">
                     {
-                        product.map((product) => <DefaultCard key = {`produto site ${product.id}`} produto={product}/>)
+                        product.map((product) => <DefaultCard key = {`produto site - ${product.id}`} produto={product}/>)
                     }
                 </div>
             </div>
