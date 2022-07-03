@@ -7,8 +7,8 @@ const AllProducts = () => {
 
     return(
         <div className="all-products">
+            <h2 className="products-title"> Anúncios </h2>
             <div className="allproducts-content">
-                <h2 className="products-title"> Anúncios </h2>
                 <div className="products-container">
                     {
                         product.map((product) => <DefaultCard key = {`produto site - ${product.id}`} produto={product}/>)

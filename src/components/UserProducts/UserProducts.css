@@ -4,7 +4,7 @@
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;   
 }
 
 .products-title{
@@ -14,6 +14,13 @@
     margin-bottom: 2rem;
 }
 
+.client-products-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    object-fit: contain;
+    grid-gap: 5vw;
+}
+
 .no-product{
     display: flex;
     flex-direction: column;
@@ -21,6 +28,10 @@
     align-items: center;
     color: white;
     padding: 5%;
+}
+
+.user-product-button{
+    margin: 5vh auto 0;
 }
 
 .button{

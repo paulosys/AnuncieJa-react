@@ -5,14 +5,11 @@ const DefaultCard = ({produto}) => {
         return priceArray;
         
     }
+    
     const priceString = getPrice(price);
     return (
         <div className="product client-product" id = {`product-${id}`}>
-                                
-        <div className="button-crud">
-            <button className="button-crud-delete" title="deletar"><i className="fa-solid fa-trash-can"></i></button>
-        </div>
-        
+                            
         <div className="product-img">
             <img src={image} alt={name}/>
         </div>

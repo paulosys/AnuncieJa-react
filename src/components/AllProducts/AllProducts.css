@@ -1,8 +1,22 @@
-.allproducts{
+.all-products{
     min-height: 80vh;
-    background-color: black;
+    background-color: #004C3F;
     padding: 2rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    justify-content: center;
+}
+
+.products-title{
+    font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.products-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    object-fit: contain;
+    grid-gap: 5vw;
 }

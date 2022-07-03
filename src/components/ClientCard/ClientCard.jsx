@@ -1,6 +1,11 @@
 import { useProduct } from "../../contexts/ProductContext";
 import api from "../../../api/api";
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+
+import {faTrashCan, faPen} from '@fortawesome/free-solid-svg-icons'
+
+
 import "./ClientCard.css";
 
 const ClientCard = (product) => { 
@@ -18,16 +23,13 @@ const ClientCard = (product) => {
 
     }
 
-
     const priceString = getPrice(price)
     return (
         <div className="product client-product" id = {`product cliente - ${id}`}>
                                 
-                <div className="button-crud">
-                    <button className="button-crud-delete" onClick = { () => handleDeleteProduct(product) } title="deletar"><i className="fa-solid fa-trash-can"></i> X </button>
-                </div>
-                <div> 
-                    <button className="Atualizar" onClick = {() => handleFormUpdateProduct(product)}> atualizar </button>
+                <div className="buttons-crud">
+                    <FontAwesomeIcon icon={faTrashCan} onClick = { () => handleDeleteProduct(product) }></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faPen} onClick = {() => handleFormUpdateProduct(product)}></FontAwesomeIcon>
                 </div>
                 
                 <div className="product-img">
