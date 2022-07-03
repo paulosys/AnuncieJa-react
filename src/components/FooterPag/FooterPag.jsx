@@ -11,8 +11,8 @@ const FooterPage = () => {
                     </div>
                     <nav className="nav-footer">
                         <ul>
-                            <li><a href="#myProduct">Meus Anúncios</a></li>
-                            <li><a href="#product">Produtos</a></li>
+                            <li><a href="#my-products">Meus Anúncios</a></li>
+                            <li><a href="#products">Produtos</a></li>
                         </ul>
                     </nav>
                 </div>

@@ -9,7 +9,7 @@ const UserProducts = () => {
   const { ShowProductForm, productClient, handleOpenFormCreateProduct } = useProduct()
 
   return (
-    <div className="user-products">
+    <div className="user-products" id='my-products'>
       <h2 className="products-title"> Meus Anúncios </h2>
 
       {

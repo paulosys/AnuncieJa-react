@@ -93,7 +93,7 @@ const FormProducts = () => {
                         <label htmlFor="productColor"> Cor do produto </label>
                         <input pattern = "^[a-zA-Z\u00C0-\u00FF ]+$" id="productColor" onChange = {handleChangeColor} value = { productSelected.color } name="productColor" required />
                     </div>
-                    <div> 
+                    <div className="options"> 
                         <input onChange = {handleChangeType} type = "radio" name = "tipo" value = "computador"/> Computador
                         <input onChange = {handleChangeType} type="radio" name = "tipo" value = "Celular" /> Celular
                     </div>

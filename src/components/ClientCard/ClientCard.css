@@ -7,6 +7,21 @@
     flex-direction: column;
 }
 
+.buttons-crud {
+    margin: 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+svg.svg-inline--fa.fa-trash-can {
+    margin-right: 10px;
+}
+
+svg.svg-inline--fa.fa-trash-can:hover,
+svg.svg-inline--fa.fa-pen:hover {
+    color: #004C3F;
+}
+
 .product:hover{
     cursor: pointer;
     transform: scale(1.05);
@@ -46,6 +61,11 @@
     font-size: 1.3rem;
 }
 
+.product-price p{
+    margin: 0;
+}
+
 .product-name{
     font-size: 1rem;
+    margin: 0;
 }

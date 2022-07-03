@@ -6,7 +6,7 @@ const AllProducts = () => {
     const {product} = useProduct()
 
     return(
-        <div className="all-products">
+        <div className="all-products" id="products">
             <h2 className="products-title"> Anúncios </h2>
             <div className="allproducts-content">
                 <div className="products-container">
