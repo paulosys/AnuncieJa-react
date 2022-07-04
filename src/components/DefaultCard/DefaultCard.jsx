@@ -16,7 +16,7 @@ const DefaultCard = ({produto}) => {
         <div className="line"></div>
         <div className="product-info">
             <div className="product-price">
-                <p> { priceString[0] } <sup> { priceString[1] } </sup> </p>
+                <p>R$ { priceString[0] } <sup> { priceString[1] } </sup> </p>
             </div>
             <h3 className="product-name"> { name } { memory } GB { color } { memoryRam } GB RAM </h3>
         </div>
