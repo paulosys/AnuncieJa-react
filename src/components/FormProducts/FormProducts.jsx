@@ -1,7 +1,8 @@
 import "./FormProducts.css";
 import { useProduct } from "../../contexts/ProductContext";
-
+import regex from "../../../regex/regex";
 import api from "../../../api/api";
+import swal from "sweetalert"
 
 
 const FormProducts = () => {
@@ -34,21 +35,50 @@ const FormProducts = () => {
 
     const handleSubmitFormCreate = (event) => {
         event.preventDefault();
-        api.addProduct(productSelected)
-        addProduct(productSelected)
-        setProductSelected(emptyProduct)
-        handleCloseFormCreateProduct()
-        
+        const resultado = {nome: regex.validar_nome(productSelected.name), color: regex.validar_cor(productSelected.color)}
+        if (resultado.nome && resultado.color) {
+            api.addProduct(productSelected)
+            addProduct(productSelected)
+            setProductSelected(emptyProduct)
+            handleCloseFormCreateProduct()
 
+        } 
+        else {
+            const errado = resultado.nome === false ? "nome" :  "cor"
+            const texto = errado === "nome" ? "Campo só pode preencher com letra, número e espaço" : "Campo só pode ser preenchido com letra e espaço"
+            swal({
+                title: `${errado} preenchido errado`,
+                text: texto,
+                icon: "error",
+                button: "Tente novamente",
+            });
+
+        }
     }
     const handleSubmitFormUpdate = (event) => {
-        console.log(typeProductForm)
+
         event.preventDefault();
-        api.updateProduct(productSelected);
-        updateProductClient(productSelected);
-        updateProduct(productSelected)
-        setProductSelected(emptyProduct);
-        handleCloseFormCreateProduct()
+        const resultado = {nome: regex.validar_nome(productSelected.name), color: regex.validar_cor(productSelected.color)}
+        if (resultado.nome && resultado.color) {
+            api.updateProduct(productSelected);
+            updateProductClient(productSelected);
+            updateProduct(productSelected)
+            setProductSelected(emptyProduct);
+            handleCloseFormCreateProduct()
+
+        }
+
+        else {
+            const errado = resultado.nome === false ? "nome" :  "cor"
+            const texto = errado === "nome" ? "Campo só pode preencher com letra, número e espaço" : "Campo só pode ser preenchido com letra e espaço"
+            swal({
+                title: `${errado} preenchido errado`,
+                text: texto,
+                icon: "error",
+                button: "Tente novamente",
+            });
+
+        }
         
        
 
@@ -67,7 +97,7 @@ const FormProducts = () => {
                 <div className="input-group">
                     <div className="input-box">
                         <label htmlFor="productName">Nome do Produto</label>
-                        <input pattern = "^[a-zA-Z\u00C0-\u00FF0-9 ]+$" id="productName" onChange = {handleChangeName} value = {productSelected.name} type="text" name="productName" required />
+                        <input  id="productName" onChange = {handleChangeName} value = {productSelected.name} type="text" name="productName" required />
                     </div>
 
                     <div className="input-box">
@@ -91,7 +121,7 @@ const FormProducts = () => {
                     </div>
                     <div className="input-box">
                         <label htmlFor="productColor"> Cor do produto </label>
-                        <input pattern = "^[a-zA-Z\u00C0-\u00FF ]+$" id="productColor" onChange = {handleChangeColor} value = { productSelected.color } name="productColor" required />
+                        <input id="productColor" onChange = {handleChangeColor} value = { productSelected.color } name="productColor" required />
                     </div>
                     <div className="options"> 
                         <input onChange = {handleChangeType} type = "radio" name = "tipo" value = "computador"/> Computador
