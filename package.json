@@ -1,8 +1,8 @@
 {
+  "homepage": "https://paulosys.github.io/AnuncieJa-react",
   "name": "anuncieja",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://paulosys.github.io/AnuncieJa",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
